@@ -5,26 +5,33 @@
     <mat-icon (click)="toggleDrawer()" *ngIf="!isLargeScreen">menu</mat-icon>
   </nav>
 
+  <div class="flex-1">
 
-  <div
-    class=" h-full bg-white fixed z-[1] top-0 left-0 overflow-x-hidden duration-500 delay-[0s] ease-out transition-all mt-12"
-    [class.w-0]="!isSideNavOpen" [class.w-60]="isSideNavOpen" style="box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;">
-    <div class="shadow-inner">
+    <div
+      class="h-full bg-white fixed z-[1] top-0 left-0 overflow-x-hidden mt-12 duration-500 delay-[0s] ease-out transition-all"
+      [class.w-0]="!isSideNavOpen" [class.w-60]="isSideNavOpen"
+      style="box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;">
+      <div class="shadow-inner">
 
-      <p *ngFor="let content of fillerContent">{{content}}</p>
+        <p *ngFor="let content of fillerContent">{{content}}</p>
 
+      </div>
     </div>
+
+    <div class="duration-500 delay-[0s] transition-[margin-left] ease-out" [class.backdrop]="isSideNavOpen && !isLargeScreen" [class.ml-60]="isSideNavOpen && !isLargeScreen"></div>
+
+    <!-- [class.bg-black]="isSideNavOpen && !isLargeScreen" [class.opacity-40]="isSideNavOpen && !isLargeScreen" -->
+    <main
+      class="relative block h-full overflow-auto p-10 flex-1"
+      [class.bg-[#0009]]="isSideNavOpen && !isLargeScreen"
+      [class.ml-0]="!isSideNavOpen && sideNavMode == 'side'" [class.ml-60]="isSideNavOpen && sideNavMode == 'side'">
+      <!-- <router-outlet></router-outlet> -->
+      <div class="bg-white w-full">
+        Hello
+      </div>
+    </main>
   </div>
 
-  <main class="relative block h-full overflow-auto p-10 flex-1 duration-500 delay-[0s] transition-[margin-left] ease-out"
-    [class.bg-black]="isSideNavOpen && !isLargeScreen" [class.opacity-40]="isSideNavOpen && !isLargeScreen"
-    [class.ml-0]="!isSideNavOpen && sideNavMode == 'side'" [class.ml-60]="isSideNavOpen && sideNavMode == 'side'"
-    >
-    <!-- <router-outlet></router-outlet> -->
-    <div class="bg-white w-full">
-      Hello
-    </div>
-  </main>
 </div>
 <!-- <div class="bg-white h-full w-full pl-4 duration-500 delay-[0s] transition-[margin-left] ease-out"
   [class.ml-0]="!isSideNavOpen" [class.ml-60]="isSideNavOpen">
