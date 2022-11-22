@@ -7,8 +7,8 @@
 
 
   <div
-    class=" h-full shadow-xl bg-white fixed z-[1] top-0 left-0 overflow-x-hidden duration-500 delay-[0s] ease-out transition-all mt-12"
-    [class.w-0]="!isSideNavOpen" [class.w-60]="isSideNavOpen">
+    class=" h-full bg-white fixed z-[1] top-0 left-0 overflow-x-hidden duration-500 delay-[0s] ease-out transition-all mt-12"
+    [class.w-0]="!isSideNavOpen" [class.w-60]="isSideNavOpen" style="box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;">
     <div class="shadow-inner">
 
       <p *ngFor="let content of fillerContent">{{content}}</p>
@@ -16,10 +16,11 @@
     </div>
   </div>
 
-  <main class="duration-500 delay-[0s] transition-[margin-left] ease-out p-8"
+  <main class="relative block h-full overflow-auto p-10 flex-1 duration-500 delay-[0s] transition-[margin-left] ease-out"
     [class.bg-black]="isSideNavOpen && !isLargeScreen" [class.opacity-40]="isSideNavOpen && !isLargeScreen"
     [class.ml-0]="!isSideNavOpen && sideNavMode == 'side'" [class.ml-60]="isSideNavOpen && sideNavMode == 'side'"
-    style="flex: 1 1 0%;">
+    >
+    <!-- <router-outlet></router-outlet> -->
     <div class="bg-white w-full">
       Hello
     </div>
