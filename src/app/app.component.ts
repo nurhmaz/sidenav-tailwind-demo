@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sidnav-tailwind-demo-2';
+
+  isSideNavOpen = false;
+
+  toggleDrawer() {
+    this.isSideNavOpen = !this.isSideNavOpen;
+  }
+
 }
