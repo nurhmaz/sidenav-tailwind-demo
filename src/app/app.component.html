@@ -1,18 +1,41 @@
-<div class="flex flex-row absolute inset-0">
+<div class="flex absolute inset-0">
 
   <!-- sidenav -->
-  <nav id="sidenav"
-    class="h-full bg-white fixed z-[1] left-0 overflow-x-hidden duration-500 delay-[0s] ease-out transition-all"
+  <!-- fixed z-[1] left-0 overflow-x-hidden -->
+  <aside id="sidebar" class="duration-500 delay-[0s] ease-out transition-all"
     [class.w-0]="!isSideNavOpen && sideNavMode == 'over'" [class.w-60]="isSideNavOpen || sideNavMode == 'side'"
     style="box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;">
 
-    <p *ngFor="let content of fillerContent">{{content}}</p>
+    <nav id="sidebar-content" class="flex flex-col h-full overflow-hidden bg-white">
 
-  </nav>
+      <div id="sidebar-main" class="relative flex-1">
+
+        <div class="left-0 opacity-100 z-[1] flex flex-col overscroll-contain absolute w-full h-full duration-500 delay-[0s] ease-out transition-all">
+
+          <div id="sidebar-header" class="basis-20 overflow-hidden pt-9 px-6">
+            <div>LOGO</div>
+            <!-- <button mat-icon-button aria-label="Nav Close Button">
+              <mat-icon>menu</mat-icon>
+            </button> -->
+          </div>
+
+          <div id="sidebar-body" class="overflow-x-hidden overflow-y-auto flex-1 scroll-smooth px-6 py-4">
+            <p *ngFor="let content of fillerContent">{{content}}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="sidebar-footer"></div>
+
+    </nav>
+
+  </aside>
 
   <div class="flex-1 flex flex-col duration-500 delay-[0s] transition-[margin-left] ease-out"
-    [class.ml-0]="sideNavMode == 'over'" [class.ml-60]="sideNavMode == 'side'">
-
+    >
+    <!-- [class.ml-0]="sideNavMode == 'over'" [class.ml-60]="sideNavMode == 'side'" -->
     <!-- header -->
     <div id="header"
       class="flex items-center justify-between bg-white text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-xl">
@@ -30,8 +53,8 @@
 
       <!-- overlay -->
       <div class="duration-500 delay-[0s] transition-[margin-left] ease-out"
-      [class.backdrop]="isSideNavOpen && sideNavMode == 'over'"
-        [class.ml-60]="isSideNavOpen && sideNavMode == 'over'" (click)="toggleDrawer()"></div>
+        [class.backdrop]="isSideNavOpen && sideNavMode == 'over'" [class.ml-60]="isSideNavOpen && sideNavMode == 'over'"
+        (click)="toggleDrawer()"></div>
 
       <!-- sidenav container -->
       <main id="sidenav-container" class="relative block h-full overflow-auto p-10 flex-1">

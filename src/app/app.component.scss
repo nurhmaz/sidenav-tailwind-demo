@@ -12,16 +12,16 @@
 }
 
 
-#sidenav::-webkit-scrollbar {
+#sidebar-body::-webkit-scrollbar {
   height: 4px;
   width: 4px;
 }
 
-#sidenav::-webkit-scrollbar-track {
+#sidebar-body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-#sidenav::-webkit-scrollbar-thumb {
+#sidebar-body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
