@@ -1,28 +1,35 @@
 <div class="flex flex-col absolute inset-0">
-  <nav
-    class="relative w-full h-12 flex flex-wrap items-center justify-between bg-white text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-xl">
+
+  <!-- navbar -->
+  <!-- style="box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;" -->
+  <nav id="navbar"
+    class="relative w-full h-12 flex flex-wrap items-center justify-between bg-white text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-xl"
+    >
     <div class="my-3">Navbar</div>
     <mat-icon (click)="toggleDrawer()" *ngIf="sideNavMode == 'over'">menu</mat-icon>
   </nav>
 
   <div class="flex-1">
 
-    <div
-      class="h-full bg-white fixed z-[1] top-0 left-0 overflow-x-hidden mt-12 duration-500 delay-[0s] ease-out transition-all"
+    <!-- sidenav -->
+    <div id="sidenav"
+      class="h-full bg-white fixed z-[1] left-0 overflow-x-hidden duration-500 delay-[0s] ease-out transition-all"
       [class.w-0]="!isSideNavOpen && sideNavMode == 'over'" [class.w-60]="isSideNavOpen || sideNavMode == 'side'"
       style="box-shadow: 0 8px 10px -5px #0003, 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f;">
-      <div class="shadow-inner">
+      <div style="box-shadow: inset 0 8px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;">
 
         <p *ngFor="let content of fillerContent">{{content}}</p>
 
       </div>
     </div>
 
+    <!-- overlay -->
     <div class="duration-500 delay-[0s] transition-[margin-left] ease-out"
     [class.backdrop]="isSideNavOpen && sideNavMode == 'over'"
     [class.ml-60]="isSideNavOpen && sideNavMode == 'over'"></div>
 
-    <main
+    <!-- sidenav container -->
+    <main id="sidenav-container"
       class="relative block h-full overflow-auto p-10 flex-1 duration-500 delay-[0s] transition-[margin-left] ease-out"
       [class.ml-0]="sideNavMode == 'over'" [class.ml-60]="sideNavMode == 'side'">
       <!-- <router-outlet></router-outlet> -->
@@ -30,6 +37,7 @@
         Hello
       </div>
     </main>
+
   </div>
 
 </div>
